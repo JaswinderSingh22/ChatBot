@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chatbot Query Interface
 
-## Getting Started
+A simple chat interface where users can type queries, see AI-like responses, and view previous queries in the same session.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js** - React framework for building the UI
+- **TypeScript** - For type safety
+- **TailwindCSS** - For styling
+- **React Markdown** - For rendering markdown in chat messages
+- **date-fns** - For formatting timestamps
+- **LocalStorage** - For persisting chat history
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Clean chat UI with user and assistant messages
+- Auto-scroll to the latest message
+- Persistence of chat history in local storage
+- Markdown support for rich text in messages
+- Suggested prompts shown beside the chat window (on desktop)
+- Responsive design that works on mobile and desktop
+- User profile with avatar and online status indicator
+- Theme toggle (light/dark mode)
+- Notification system
+- User menu with options to clear chat history
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Instructions
 
-## Learn More
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd chatbot
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-## Deploy on Vercel
+## Design Decisions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Mock Responses**: Since this is a frontend-only demo, the AI responses are mocked with a set of predefined messages.
+- **Local Storage**: Chat history is saved to the browser's local storage, allowing users to refresh the page without losing their conversation.
+- **Responsive Design**: The interface adapts to different screen sizes. On mobile, the suggested prompts are hidden to maximize chat space.
+- **Markdown Support**: Added markdown rendering to support rich text formatting in messages.
+- **Auto-scroll**: The chat automatically scrolls to the latest message when new messages are added.
+- **Loading States**: Visual feedback is provided when messages are being processed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Improvements
+
+- Connect to a real AI backend for genuine responses
+- Add user authentication to persist chats across devices
+- Implement chat history management (clear, export, etc.)
+- Add voice input/output capabilities
+- Implement typing indicators and read receipts
