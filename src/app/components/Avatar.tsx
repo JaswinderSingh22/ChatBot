@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface AvatarProps {
   name: string;
@@ -32,9 +33,11 @@ export default function Avatar({ name, size = 'md', src }: AvatarProps) {
       }`}
     >
       {src && !imageError ? (
-        <img 
+        <Image 
           src={src} 
-          alt={`${name}'s avatar`} 
+          alt={`${name}&apos;s avatar`} 
+          width={48}
+          height={48}
           className="h-full w-full rounded-full object-cover"
           onError={() => setImageError(true)}
         />

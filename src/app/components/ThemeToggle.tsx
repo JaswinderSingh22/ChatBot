@@ -18,7 +18,7 @@ export default function ThemeToggle() {
     }
   }, []);
   
-  // This is just a visual toggle since we're using system preference
+  // This is just a visual toggle since we&apos;re using system preference
   // In a real app, you would implement actual theme switching
   return (
     <button 

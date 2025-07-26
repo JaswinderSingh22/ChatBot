@@ -13,9 +13,7 @@ import {
   ChatMessage as ChatMessageType, 
   ChatState, 
   ChatSession, 
-  UploadedFile,
-  Project,
-  KnowledgeSource 
+  UploadedFile
 } from '@/types/chat';
 import { 
   generateId, 
@@ -89,7 +87,7 @@ export default function Home() {
     if (chatState.currentSessionId) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         ...chatState,
-        isLoading: false, // Don't persist loading state
+        isLoading: false, // Don&apos;t persist loading state
       }));
     }
   }, [chatState]);
@@ -157,7 +155,7 @@ export default function Home() {
     const selectedKnowledgeSource = mockKnowledgeSources.find(ks => ks.id === chatState.selectedKnowledgeSource);
     
     if (selectedProject && selectedKnowledgeSource) {
-      responseContent += ` I'm currently working within the "${selectedProject.name}" project context and using "${selectedKnowledgeSource.name}" as the knowledge source.`;
+      responseContent += ` I&apos;m currently working within the "${selectedProject.name}" project context and using "${selectedKnowledgeSource.name}" as the knowledge source.`;
     }
 
     // Add bot response
@@ -212,7 +210,7 @@ export default function Home() {
     setChatState(prevState => {
       const updatedSessions = prevState.sessions.filter(s => s.id !== sessionId);
       
-      // If we're deleting the current session, switch to another one or create new
+      // If we&apos;re deleting the current session, switch to another one or create new
       let newCurrentSessionId = prevState.currentSessionId;
       let newMessages = prevState.messages;
       
@@ -420,7 +418,7 @@ export default function Home() {
                     Welcome to Smart Document Chat!
                   </h2>
                   <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                    I'm your AI assistant for document analysis and intelligent conversations. 
+                    I&apos;m your AI assistant for document analysis and intelligent conversations. 
                     Upload files, select workflows, or just start chatting!
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
