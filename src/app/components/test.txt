@@ -1,0 +1,25 @@
+
+construction industry:
+login page - signup, mfa, roles - user/admin(assigning tasks)/superadmin(creater)
+
+file explorer - folder managing
+
+signup-{
+    usename,
+    email,
+    contact?,
+    password
+}
+login page- {
+    username,
+    password,
+}
+reponse of login-{
+    username,
+    token,
+    role,
+}
+
+--> redirect to the chat screen
+serverside --> we will fetch old data or history (if existed).
+

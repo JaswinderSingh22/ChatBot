@@ -1,62 +1,182 @@
-# Chatbot Query Interface
+# Smart Document-Aware Chat Interface
 
-A simple chat interface where users can type queries, see AI-like responses, and view previous queries in the same session.
+A modern, intelligent chat interface that enables users to engage with an AI assistant through natural language queries. The system supports file uploads, maintains chat session history, and offers a clean, intuitive user experience with document analysis capabilities.
 
-## Tech Stack
+![Smart Document Chat Interface](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Smart+Document+Chat+Interface)
 
-- **Next.js** - React framework for building the UI
-- **TypeScript** - For type safety
-- **TailwindCSS** - For styling
-- **React Markdown** - For rendering markdown in chat messages
-- **date-fns** - For formatting timestamps
-- **LocalStorage** - For persisting chat history
+## 🚀 Features
 
-## Features
+### Core Chat Functionality
+- **Natural Language Interface**: Intuitive text input with markdown rendering support
+- **Real-time Responses**: Simulated AI responses with typing indicators
+- **Auto-scroll**: Automatically scrolls to the latest message
+- **Message History**: Persistent chat history across sessions
 
-- Clean chat UI with user and assistant messages
-- Auto-scroll to the latest message
-- Persistence of chat history in local storage
-- Markdown support for rich text in messages
-- Suggested prompts shown beside the chat window (on desktop)
-- Responsive design that works on mobile and desktop
-- User profile with avatar and online status indicator
-- Theme toggle (light/dark mode)
-- Notification system
-- User menu with options to clear chat history
+### File Upload & Document Processing
+- **Drag & Drop Upload**: Support for PDF, DOCX, and TXT files
+- **File Management**: Display uploaded files with removal options
+- **Document Context**: Files serve as context for AI responses
+- **File Type Validation**: Automatic filtering of supported file types
 
-## Setup Instructions
+### Session Management
+- **Multiple Chat Sessions**: Create and manage multiple conversation threads
+- **Session Persistence**: Chat history stored in localStorage
+- **Session Switching**: Seamlessly switch between different conversations
+- **Auto-generated Titles**: Smart session naming based on conversation content
 
-1. Clone the repository:
+### Project & Knowledge Source Selection
+- **Project Context**: Select from predefined projects for targeted responses
+- **Knowledge Sources**: Choose from various knowledge bases (databases, repositories, documents)
+- **Contextual Responses**: AI responses adapt based on selected project and knowledge source
+
+### Quick Workflows
+- **Document Summarization**: Generate concise summaries of uploaded documents
+- **Date Extraction**: Find and list important dates and deadlines
+- **Text Translation**: Translate content to different languages
+- **Template Responses**: Create professional response templates
+- **Sentiment Analysis**: Analyze tone and emotional context
+- **Action Item Extraction**: Identify tasks and to-do items
+
+### Enhanced User Experience
+- **Dark/Light Theme**: Toggle between themes with system preference detection
+- **Responsive Design**: Optimized for desktop and mobile devices
+- **Suggested Prompts**: Quick-start prompts for common tasks
+- **Response Actions**: Copy, rate, and provide feedback on responses
+- **File Attachments Display**: Visual representation of uploaded files in messages
+
+## 🛠 Tech Stack
+
+- **Frontend**: Next.js 15.4.2 with React 19
+- **Styling**: TailwindCSS 4.0 with custom components
+- **TypeScript**: Full type safety throughout the application
+- **State Management**: React hooks with localStorage persistence
+- **Markdown**: react-markdown for rich text rendering
+- **Date Handling**: date-fns for time formatting
+- **Icons**: Heroicons via inline SVG
+
+## 📦 Installation & Setup
+
+1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd chatbot
+   cd smart-document-chat
    ```
 
-2. Install dependencies:
+2. **Install dependencies**
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-3. Run the development server:
+3. **Run the development server**
    ```bash
    npm run dev
+   # or
+   yarn dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Design Decisions
+## 🏗 Project Structure
 
-- **Mock Responses**: Since this is a frontend-only demo, the AI responses are mocked with a set of predefined messages.
-- **Local Storage**: Chat history is saved to the browser's local storage, allowing users to refresh the page without losing their conversation.
-- **Responsive Design**: The interface adapts to different screen sizes. On mobile, the suggested prompts are hidden to maximize chat space.
-- **Markdown Support**: Added markdown rendering to support rich text formatting in messages.
-- **Auto-scroll**: The chat automatically scrolls to the latest message when new messages are added.
-- **Loading States**: Visual feedback is provided when messages are being processed.
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── Avatar.tsx              # User avatar component
+│   │   ├── ChatHistory.tsx         # Chat session management
+│   │   ├── ChatInput.tsx           # Message input component
+│   │   ├── ChatMessage.tsx         # Message display with actions
+│   │   ├── FileUpload.tsx          # File upload with drag & drop
+│   │   ├── NotificationBell.tsx    # Notification indicator
+│   │   ├── ThemeToggle.tsx         # Dark/light theme switcher
+│   │   ├── UserMenu.tsx            # User profile menu
+│   │   └── WorkflowsPanel.tsx      # Quick workflow actions
+│   ├── globals.css                 # Global styles and theme
+│   ├── layout.tsx                  # Root layout component
+│   └── page.tsx                    # Main application page
+├── types/
+│   └── chat.ts                     # TypeScript type definitions
+└── utils/
+    └── helpers.ts                  # Utility functions and mock data
+```
 
-## Future Improvements
+## 🎨 Design Decisions
 
-- Connect to a real AI backend for genuine responses
-- Add user authentication to persist chats across devices
-- Implement chat history management (clear, export, etc.)
-- Add voice input/output capabilities
-- Implement typing indicators and read receipts
+### Architecture
+- **Component-based Design**: Modular components for maintainability
+- **Type Safety**: Comprehensive TypeScript interfaces
+- **State Management**: Centralized state with localStorage persistence
+- **Responsive Layout**: Three-panel layout (sidebar, main, suggestions)
+
+### User Experience
+- **Progressive Enhancement**: Core functionality works without JavaScript
+- **Accessibility**: Semantic HTML and keyboard navigation support
+- **Performance**: Optimized rendering with React best practices
+- **Visual Feedback**: Loading states, animations, and status indicators
+
+### Data Persistence
+- **localStorage**: Client-side storage for chat history and preferences
+- **Session Management**: Automatic session creation and management
+- **File Handling**: In-memory file processing with content extraction
+
+## 🔧 Configuration
+
+### Mock Data
+The application includes mock data for:
+- **Projects**: 5 predefined project contexts
+- **Knowledge Sources**: 5 different knowledge base types
+- **AI Responses**: 10 contextual response templates
+
+### Customization
+- **Themes**: Modify CSS variables in `globals.css`
+- **Workflows**: Add new workflows in `WorkflowsPanel.tsx`
+- **Mock Responses**: Update responses in `utils/helpers.ts`
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+```bash
+npm run build
+# Deploy to Vercel
+vercel --prod
+```
+
+### Other Platforms
+```bash
+npm run build
+npm start
+```
+
+## 🔮 Future Enhancements
+
+- **Real AI Integration**: Connect to OpenAI, Anthropic, or other AI APIs
+- **Advanced File Processing**: OCR for images, better PDF parsing
+- **Collaborative Features**: Share sessions, team workspaces
+- **Search Functionality**: Search across chat history and documents
+- **Export Options**: Export conversations and summaries
+- **Voice Input**: Speech-to-text integration
+- **Real-time Collaboration**: Multiple users in same session
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Next.js Team** for the excellent framework
+- **Tailwind CSS** for the utility-first CSS framework
+- **Heroicons** for the beautiful icon set
+- **Vercel** for hosting and deployment platform
+
+---
